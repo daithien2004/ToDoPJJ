@@ -25,7 +25,7 @@ jobs:
         JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
         JIRA_DOMAIN: ${{ secrets.JIRA_URL }}
       run: |
-        ISSUE_KEY=$(echo "${{ github.event.pull_request.title }}" | grep -o 'TOD-[0-9]\+')
+        ISSUE_KEY=$(echo "${{ github.event.pull_request.title }}" | grep -o 'SCRUM-[0-9]\+')
         echo "Found issue: $ISSUE_KEY"
         if [ -n "$ISSUE_KEY" ]; then
           curl -u "$JIRA_EMAIL:$JIRA_API_TOKEN" \
